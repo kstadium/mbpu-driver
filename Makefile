@@ -9,7 +9,7 @@ endif
 
 $(warning XVC_FLAGS: $(XVC_FLAGS).)
 
-topdir := $(shell cd $(src)/.. && pwd)
+topdir := $(shell cd $(src) && pwd)
 
 TARGET_MODULE:=mdlx
 
@@ -18,7 +18,7 @@ EXTRA_CFLAGS := -I$(topdir)/include $(XVC_FLAGS)
 #EXTRA_CFLAGS += -DINTERNAL_TESTING
 
 ifneq ($(KERNELRELEASE),)
-	$(TARGET_MODULE)-objs := libmdlx.o mdlx_cdev.o cdev_ctrl.o cdev_events.o cdev_sgdma.o cdev_xvc.o cdev_bypass.o mdlx_mod.o mdlx_thread.o
+	$(TARGET_MODULE)-objs := src/libmdlx.o src/mdlx_cdev.o src/cdev_ctrl.o src/cdev_events.o src/cdev_sgdma.o src/cdev_xvc.o src/cdev_bypass.o src/mdlx_mod.o src/mdlx_thread.o
 	obj-m := $(TARGET_MODULE).o
 else
 	BUILDSYSTEM_DIR:=/lib/modules/$(shell uname -r)/build
