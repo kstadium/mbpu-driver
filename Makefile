@@ -21,6 +21,9 @@ ifneq ($(KERNELRELEASE),)
 	$(TARGET_MODULE)-objs := src/libmdlx.o src/mdlx_cdev.o src/cdev_ctrl.o src/cdev_events.o src/cdev_sgdma.o src/cdev_xvc.o src/cdev_bypass.o src/mdlx_mod.o src/mdlx_thread.o
 	obj-m := $(TARGET_MODULE).o
 else
+	ifeq ($(TEST),)
+		KERNEL_DIR := /lib/modules/$(shell uname -r)/build
+	endif 
 	BUILDSYSTEM_DIR:=$(KERNEL_DIR)
 	PWD:=$(shell pwd)
 all :
