@@ -138,11 +138,10 @@ mbpu_build_kernel_module(){
     ## check gcc and install if not exists
     local INSTALL_DIR
     INSTALL_DIR="$(mbpu_install_dir)"  
-    KERNEL_DIR="/lib/modules/$(uname -r)/build"
 
     if [ -d ${INSTALL_DIR} ]; then
         make -C "$INSTALL_DIR" clean
-        make -C "$INSTALL_DIR" KERNEL_DIR="$KERNEL_DIR"
+        make -C "$INSTALL_DIR"
     else
         echo >&2 'MBPU Source Directory is empty. Please report this!'
         exit 2
