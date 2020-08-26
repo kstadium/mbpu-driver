@@ -66,12 +66,12 @@ mbpu_setup_env(){
     if [ "$OS" == "centos" ]; then
         [ -e "/lib/modules/$(uname -r)/build" ] || sudo yum install -y "kernel-devel-uname-r == $(uname -r)"
         if ! nvm_has "gcc"; then
-            sudo yum update -y && sudo yum install -y gcc
+            sudo yum install -y gcc
         fi
     elif [ "$OS" == "ubuntu" ]; then
         [ -e "/lib/modules/$(uname -r)/build" ] || sudo apt install linux-headers-`uname -r`
         if ! nvm_has "gcc"; then
-            sudo apt update -y && sudo apt install gcc
+            sudo apt install gcc
         fi
     fi
 }
