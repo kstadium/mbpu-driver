@@ -64,9 +64,9 @@ mbpu_setup_env(){
     OS="$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')"
 
     if [ "$OS" == "centos" ]; then
-        [ -d "/lib/modules/$(uname -r)" ] || ( sudo yum update -y && sudo yum reinstall -y "kernel-devel-uname-r == $(uname -r)" )
+        [ -d "/lib/modules/$(uname -r)" ] || ( sudo yum update -y && sudo yum install -y "kernel-devel-uname-r == $(uname -r)" )
     elif [ "$OS" == "ubuntu" ]; then
-        [ -d "/lib/modules/$(uname -r)" ] || ( sudo apt update && sudo apt install --reinstall linux-headers-`uname -r` )
+        [ -d "/lib/modules/$(uname -r)" ] || ( sudo apt update && sudo apt install linux-headers-`uname -r` )
     fi
 }
 
