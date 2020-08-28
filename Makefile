@@ -14,7 +14,7 @@ topdir := $(shell cd $(src) && pwd)
 TARGET_MODULE:=mdlx
 
 EXTRA_CFLAGS := -I$(topdir)/include $(XVC_FLAGS)
-#EXTRA_CFLAGS += -D__LIBMDLX_DEBUG__
+EXTRA_CFLAGS += -D__LIBMDLX_DEBUG__
 #EXTRA_CFLAGS += -DINTERNAL_TESTING
 
 ifneq ($(KERNELRELEASE),)
