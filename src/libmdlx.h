@@ -178,7 +178,7 @@
 #define WB_ERR_MASK (1UL << 31)
 #define POLL_TIMEOUT_SECONDS 10
 
-#define MAX_USER_IRQ 16
+#define MAX_USER_IRQ 0
 
 #define MAX_DESC_BUS_ADDR (0xffffffffULL)
 
