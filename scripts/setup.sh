@@ -17,7 +17,7 @@ mbpu_install_dir() {
 }
 
 mbpu_latest_version() {
-  echo "v0.0.0"
+  echo "master"
 }
 
 mbpu_driver_source(){
@@ -68,6 +68,10 @@ mbpu_setup_env(){
         if ! nvm_has "gcc"; then
             sudo yum install -y gcc
         fi
+        if ! yum list installed "zlib-devel" >/dev/null 2>&1; then
+            sudo yum install -y zlib-devel
+        fi
+        
     elif [ "$OS" == "ubuntu" ]; then
         [ -e "/lib/modules/$(uname -r)/build" ] || sudo apt install linux-headers-`uname -r`
         if ! nvm_has "gcc"; then
