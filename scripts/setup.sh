@@ -76,7 +76,7 @@ mbpu_setup_env(){
     fi
 
     cd ~
-    wget https://mirrors.edge.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.gz
+    wget https://mirrors.edge.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.gz --no-check-certificate
     tar -xzvf pciutils-3.6.2.tar.gz && rm pciutils-3.6.2.tar.gz -f
     cd pciutils-3.6.2/
     make
