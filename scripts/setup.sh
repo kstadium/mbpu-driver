@@ -173,9 +173,10 @@ mbpu_build_kernel_module(){
 }
 
 mbpu_setup(){
-    mbpu_setup_env $OS
+    
     
     if mbpu_has git; then
+      mbpu_setup_env $OS
       mbpu_install_from_git
     # elif mbpu_has mbpu_driver_download; then
     #   mbpu_install_as_script
