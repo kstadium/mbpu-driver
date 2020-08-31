@@ -74,6 +74,21 @@ mbpu_setup_env(){
             sudo apt install gcc
         fi
     fi
+
+    cd ~
+    wget https://mirrors.edge.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.gz
+    tar -xzvf pciutils-3.6.2.tar.gz && rm pciutils-3.6.2.tar.gz -f
+    cd pciutils-3.6.2/
+    make
+    sudo mv ~/pciutils-3.6.2 /opt
+
+    cd ~
+    git clone https://github.com/Xilinx/embeddedsw.git
+    cd embeddedsw/
+    git checkout mcap --
+    cd mcap/linux/
+    make PCIUTILS_PATH=/opt/pciutils-3.6.2/
+    sudo mv ~/embeddedsw /opt
 }
 
 mbpu_install_from_git(){
