@@ -88,7 +88,7 @@ mbpu_setup_env(){
     git checkout mcap --
     cd mcap/linux/
     make PCIUTILS_PATH=/opt/pciutils-3.6.2/
-    sudo mv ~/xlinx /opt
+    sudo mv ~/xilinx /opt
 }
 
 mbpu_install_from_git(){

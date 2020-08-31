@@ -1,0 +1,49 @@
+[  179.251965] mdlx: loading out-of-tree module taints kernel.
+[  179.255912] mdlx: module verification failed: signature and/or required key missing - tainting kernel
+[  179.259889] mdlx:mdlx_mod_init: Medium Distributed Ledger Driver Module Init
+[  179.259890] mdlx:mdlx_mod_init: Medium MDLX Reference Driver mdlx v2020.7.11
+[  179.259892] mdlx:mdlx_mod_init: desc_blen_max: 0xfffffff/268435455, sgdma_timeout: 10 sec.
+[  179.262340] BUG: unable to handle kernel paging request at 0000000000002008
+[  179.262431] IP: [<ffffffff8bbc8d9f>] __alloc_pages_nodemask+0x8f/0x450
+[  179.262509] PGD 0
+[  179.262539] Oops: 0000 [#1] SMP
+[  179.262585] Modules linked in: mdlx(OE+) ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 ipt_REJECT nf_reject_ipv4 xt_conntrack ebtable_nat ebtable_broute bridge stp llc ip6table_nat nf_conntrack_ipv6 nf_defrag_ipv6 nf_nat_ipv6 ip6table_mangle ip6table_security ip6table_raw iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat iptable_mangle iptable_security iptable_raw nf_conntrack ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables iptable_filter vmw_vsock_vmci_transport vsock iosf_mbi crc32_pclmul ghash_clmulni_intel ppdev aesni_intel vmw_balloon lrw gf128mul glue_helper ablk_helper cryptd joydev pcspkr sg vmw_vmci i2c_piix4 parport_pc parport ip_tables xfs libcrc32c sr_mod cdrom ata_generic pata_acpi vmwgfx sd_mod drm_kms_helper crc_t10dif crct10dif_generic syscopyarea sysfillrect
+[  179.263644]  sysimgblt fb_sys_fops ttm ahci crct10dif_pclmul crct10dif_common drm ata_piix libahci crc32c_intel serio_raw libata nfit libnvdimm vmxnet3 vmw_pvscsi drm_panel_orientation_quirks dm_mirror dm_region_hash dm_log dm_mod
+[  179.263946] CPU: 1 PID: 2 Comm: kthreadd Kdump: loaded Tainted: G           OE  ------------   3.10.0-1127.el7.x86_64 #1
+[  179.264055] Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 12/09/2019
+[  179.264159] task: ffff904e3ce69070 ti: ffff904e3cef8000 task.ti: ffff904e3cef8000
+[  179.264232] RIP: 0010:[<ffffffff8bbc8d9f>]  [<ffffffff8bbc8d9f>] __alloc_pages_nodemask+0x8f/0x450
+[  179.264335] RSP: 0018:ffff904e3cefbb20  EFLAGS: 00010246
+[  179.264390] RAX: 0000000000002000 RBX: 0000000000000000 RCX: ffff904e3cefbfd8
+[  179.264461] RDX: 0000000000000000 RSI: 0000000000000003 RDI: 00000000002052d0
+[  179.264533] RBP: ffff904e3cefbbb8 R08: ffff904ef32120e0 R09: 0000000100070006
+[  179.264605] R10: ffffffff8ba992be R11: 0000000000000000 R12: 00000000002052d0
+[  179.264679] R13: 00000000002052d0 R14: 0000000000000002 R15: 0000000000000000
+[  179.264753] FS:  0000000000000000(0000) GS:ffff904effc80000(0000) knlGS:0000000000000000
+[  179.264846] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  179.264903] CR2: 0000000000002008 CR3: 00000000b8792000 CR4: 00000000007607e0
+[  179.265036] PKRU: 00000000
+[  179.265068] Call Trace:
+[  179.267206]  [<ffffffff8bc24cb2>] ? deactivate_slab+0x122/0x3c0
+[  179.269060]  [<ffffffff8bc26e06>] new_slab+0xa6/0x4e0
+[  179.269886]  [<ffffffff8bc2760c>] ___slab_alloc+0x3cc/0x520
+[  179.270713]  [<ffffffff8ba992be>] ? copy_process+0x18e/0x1a70
+[  179.271522]  [<ffffffff8ba992be>] ? copy_process+0x18e/0x1a70
+[  179.272311]  [<ffffffff8c17c884>] __slab_alloc+0x40/0x5c
+[  179.273092]  [<ffffffff8bc277eb>] kmem_cache_alloc_node+0x8b/0x200
+[  179.273884]  [<ffffffff8bac65c0>] ? insert_kthread_work+0x40/0x40
+[  179.274661]  [<ffffffff8bac65c0>] ? insert_kthread_work+0x40/0x40
+[  179.275405]  [<ffffffff8ba992be>] copy_process+0x18e/0x1a70
+[  179.276136]  [<ffffffff8bae69a1>] ? put_prev_entity+0x31/0x400
+[  179.276851]  [<ffffffff8ba9ad51>] do_fork+0x91/0x330
+[  179.277548]  [<ffffffff8badbbda>] ? set_cpus_allowed_ptr+0xda/0x1c0
+[  179.278233]  [<ffffffff8ba9b016>] kernel_thread+0x26/0x30
+[  179.278902]  [<ffffffff8bac7071>] kthreadd+0x2e1/0x320
+[  179.279549]  [<ffffffff8bac6d90>] ? kthread_create_on_cpu+0x60/0x60
+[  179.280188]  [<ffffffff8c192d37>] ret_from_fork_nospec_begin+0x21/0x21
+[  179.280818]  [<ffffffff8bac6d90>] ? kthread_create_on_cpu+0x60/0x60
+[  179.281420] Code: 00 00 44 89 e3 44 89 e0 c1 eb 02 c1 e8 13 83 e3 02 83 e0 01 09 c3 44 23 25 9f 79 b9 00 41 f6 c4 10 0f 85 d5 01 00 00 48 8b 45 b8 <48> 83 78 08 00 0f 84 d6 01 00 00 48 8b 45 b8 44 89 75 b4 4d 89
+[  179.283356] RIP  [<ffffffff8bbc8d9f>] __alloc_pages_nodemask+0x8f/0x450
+[  179.283961]  RSP <ffff904e3cefbb20>
+[  179.284545] CR2: 0000000000002008
+[root@hqvm02 ~]#

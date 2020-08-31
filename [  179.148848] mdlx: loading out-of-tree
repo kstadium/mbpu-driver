@@ -1,0 +1,45 @@
+[  179.148848] mdlx: loading out-of-tree module taints kernel.
+[  179.149827] mdlx: module verification failed: signature and/or required key missing - tainting kernel
+[  179.151306] mdlx:mdlx_mod_init: Medium Distributed Ledger Driver Module Init
+[  179.151307] mdlx:mdlx_mod_init: Medium MDLX Reference Driver mdlx v2020.7.11
+[  179.151309] mdlx:mdlx_mod_init: desc_blen_max: 0xfffffff/268435455, sgdma_timeout: 10 sec.
+[  179.152543] general protection fault: 0000 [#1] SMP
+[  179.152558] Modules linked in: mdlx(OE+) ip6t_rpfilter ip6t_REJECT nf_reject_ipv6 ipt_REJECT nf_reject_ipv4 xt_conntrack ebtable_nat ebtable_broute bridge stp llc ip6table_nat nf_conntrack_ipv6 nf_defrag_ipv6 nf_nat_ipv6 ip6table_mangle ip6table_security ip6table_raw iptable_nat nf_conntrack_ipv4 nf_defrag_ipv4 nf_nat_ipv4 nf_nat iptable_mangle iptable_security iptable_raw nf_conntrack ip_set nfnetlink ebtable_filter ebtables ip6table_filter ip6_tables iptable_filter vmw_vsock_vmci_transport vsock iosf_mbi crc32_pclmul ghash_clmulni_intel sg ppdev aesni_intel lrw gf128mul vmw_balloon glue_helper ablk_helper cryptd joydev pcspkr vmw_vmci i2c_piix4 parport_pc parport ip_tables xfs libcrc32c sr_mod cdrom ata_generic pata_acpi vmwgfx drm_kms_helper syscopyarea sysfillrect sysimgblt fb_sys_fops ahci ttm
+[  179.152744]  sd_mod libahci crc_t10dif crct10dif_generic drm ata_piix libata nfit crct10dif_pclmul crct10dif_common crc32c_intel libnvdimm serio_raw vmxnet3 vmw_pvscsi drm_panel_orientation_quirks dm_mirror dm_region_hash dm_log dm_mod
+[  179.152797] CPU: 2 PID: 2 Comm: kthreadd Kdump: loaded Tainted: G           OE  ------------   3.10.0-1127.el7.x86_64 #1
+[  179.152817] Hardware name: VMware, Inc. VMware Virtual Platform/440BX Desktop Reference Platform, BIOS 6.00 12/09/2019
+[  179.152836] task: ffff9ccdbce69070 ti: ffff9ccdbceec000 task.ti: ffff9ccdbceec000
+[  179.152849] RIP: 0010:[<ffffffff8d1c8d9f>]  [<ffffffff8d1c8d9f>] __alloc_pages_nodemask+0x8f/0x450
+[  179.152868] RSP: 0018:ffff9ccdbceefb20  EFLAGS: 00010246
+[  179.152878] RAX: 0601610917001fdf RBX: 0000000000000000 RCX: ffff9ccdbceeffd8
+[  179.152891] RDX: 0000000000000000 RSI: 0000000000000003 RDI: 00000000002052d0
+[  179.152904] RBP: ffff9ccdbceefbb8 R08: ffff9cce761f1070 R09: 0000000100070004
+[  179.152916] R10: ffffffff8d0992be R11: 0000000000000000 R12: 00000000002052d0
+[  179.152929] R13: 00000000002052d0 R14: 0000000000000002 R15: 0000000000000000
+[  179.152942] FS:  0000000000000000(0000) GS:ffff9cce7fd00000(0000) knlGS:0000000000000000
+[  179.152956] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  179.152967] CR2: 00007f16a9586000 CR3: 0000000235186000 CR4: 00000000003607e0
+[  179.152997] Call Trace:
+[  179.153005]  [<ffffffff8d3a4cdd>] ? list_del+0xd/0x30
+[  179.153016]  [<ffffffff8d224cb2>] ? deactivate_slab+0x122/0x3c0
+[  179.153028]  [<ffffffff8d226e06>] new_slab+0xa6/0x4e0
+[  179.153043]  [<ffffffff8d22760c>] ___slab_alloc+0x3cc/0x520
+[  179.153423]  [<ffffffff8d0992be>] ? copy_process+0x18e/0x1a70
+[  179.153804]  [<ffffffff8d035c19>] ? sched_clock+0x9/0x10
+[  179.154178]  [<ffffffff8d0e0cd6>] ? sched_slice.isra.55+0x66/0xc0
+[  179.154553]  [<ffffffff8d0992be>] ? copy_process+0x18e/0x1a70
+[  179.154924]  [<ffffffff8d77c884>] __slab_alloc+0x40/0x5c
+[  179.155285]  [<ffffffff8d2277eb>] kmem_cache_alloc_node+0x8b/0x200
+[  179.155641]  [<ffffffff8d0c65c0>] ? insert_kthread_work+0x40/0x40
+[  179.155988]  [<ffffffff8d0c65c0>] ? insert_kthread_work+0x40/0x40
+[  179.156326]  [<ffffffff8d0992be>] copy_process+0x18e/0x1a70
+[  179.156653]  [<ffffffff8d09ad51>] do_fork+0x91/0x330
+[  179.156968]  [<ffffffff8d09b016>] kernel_thread+0x26/0x30
+[  179.157276]  [<ffffffff8d0c7071>] kthreadd+0x2e1/0x320
+[  179.157574]  [<ffffffff8d0c6d90>] ? kthread_create_on_cpu+0x60/0x60
+[  179.157867]  [<ffffffff8d792d37>] ret_from_fork_nospec_begin+0x21/0x21
+[  179.158153]  [<ffffffff8d0c6d90>] ? kthread_create_on_cpu+0x60/0x60
+[  179.158430] Code: 00 00 44 89 e3 44 89 e0 c1 eb 02 c1 e8 13 83 e3 02 83 e0 01 09 c3 44 23 25 9f 79 b9 00 41 f6 c4 10 0f 85 d5 01 00 00 48 8b 45 b8 <48> 83 78 08 00 0f 84 d6 01 00 00 48 8b 45 b8 44 89 75 b4 4d 89
+[  179.159324] RIP  [<ffffffff8d1c8d9f>] __alloc_pages_nodemask+0x8f/0x450
+[  179.159608]  RSP <ffff9ccdbceefb20>
+[root@hqvm06 ~]#
