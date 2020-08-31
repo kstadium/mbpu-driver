@@ -83,12 +83,12 @@ mbpu_setup_env(){
     sudo mv ~/pciutils-3.6.2 /opt
 
     cd ~
-    git clone https://github.com/Xilinx/embeddedsw.git
-    cd embeddedsw/
+    git clone https://github.com/Xilinx/embeddedsw.git xilinx 
+    cd xilinx/
     git checkout mcap --
     cd mcap/linux/
     make PCIUTILS_PATH=/opt/pciutils-3.6.2/
-    sudo mv ~/embeddedsw /opt
+    sudo mv ~/xlinx /opt
 }
 
 mbpu_install_from_git(){
