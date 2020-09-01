@@ -68,6 +68,9 @@ mbpu_setup_env(){
         if ! nvm_has "gcc"; then
             sudo yum install -y gcc
         fi
+        if ! nvm_has "wget"; then
+            sudo yum install -y wget
+        fi
         if ! yum list installed "zlib-devel" >/dev/null 2>&1; then
             sudo yum install -y zlib-devel
         fi
